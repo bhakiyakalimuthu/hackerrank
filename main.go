@@ -16,6 +16,7 @@ func main() {
 	stdout, _ := os.Create(os.Getenv("OUTPUT_PATH"))
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 	for i, resultItem := range result {
+		fmt.Println(resultItem)
 		fmt.Fprintf(writer, "%s", resultItem)
 
 		if i != len(result)-1 {
