@@ -14,6 +14,7 @@ import (
 func main() {
 	result := getUsernames(10)
 	stdout, _ := os.Create(os.Getenv("OUTPUT_PATH"))
+	defer stdout.Close()
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 	for i, resultItem := range result {
 		fmt.Println(resultItem)
@@ -23,6 +24,7 @@ func main() {
 			fmt.Fprintf(writer, "\n")
 		}
 	}
+	writer.Flush()
 }
 func getUsernames(threshold int32) []string {
 	var userNames []string
