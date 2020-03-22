@@ -3,12 +3,8 @@ package main
 
 import (
 "bufio"
-"encoding/json"
 "fmt"
-"net/http"
 "os"
-"strconv"
-"time"
 )
 
 func main() {
