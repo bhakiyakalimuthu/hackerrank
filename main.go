@@ -7,14 +7,15 @@ import (
 	"net/http"
 	"os"
 	"time"
+	. "github.com/bhakiyakalimuthu/hackerrank/internal"
 )
 
 func main() {
 	client := http.Client{
 		Timeout: 10 * time.Second,
 	}
-	s:= internal.NewServiceDefault(client)
-	result := getUsernames(10)
+	s:= NewServiceDefault(client)
+	result := s.GetUserName(10)
 	stdout, _ := os.Create(os.Getenv("OUTPUT_PATH"))
 	defer stdout.Close()
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
