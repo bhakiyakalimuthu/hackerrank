@@ -7,14 +7,14 @@ import (
 	"net/http"
 	"os"
 	"time"
-	. "github.com/bhakiyakalimuthu/hackerrank/internal"
+	"github.com/bhakiyakalimuthu/hackerrank/internal"
 )
 
 func main() {
 	client := http.Client{
 		Timeout: 10 * time.Second,
 	}
-	s:= NewServiceDefault(client)
+	s:= internal.NewServiceDefault(client)
 	result := s.GetUserName(10)
 	stdout, _ := os.Create(os.Getenv("OUTPUT_PATH"))
 	defer stdout.Close()
