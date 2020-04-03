@@ -10,6 +10,10 @@ import (
 	"github.com/bhakiyakalimuthu/hackerrank/internal"
 )
 
+type config struct{
+	BaseURL string `env:"base_url" envDefault:"https://jsonmock.hackerrank.com/api/article_users/search?page=" `
+}
+
 func main() {
 	client := http.Client{
 		Timeout: 10 * time.Second,
