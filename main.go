@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 	"time"
-	"github.com/bhakiyakalimuthu/hackerrank/internal"
+	"github.com/bhakiyakalimuthu/hackerrank/internal/user"
 )
 
 type config struct{
@@ -18,7 +18,7 @@ func main() {
 	client := http.Client{
 		Timeout: 10 * time.Second,
 	}
-	s:= internal.NewServiceDefault(client)
+	s:= user.NewServiceDefault(client)
 	result := s.GetUserName(10)
 	stdout, _ := os.Create(os.Getenv("OUTPUT_PATH"))
 	defer stdout.Close()
